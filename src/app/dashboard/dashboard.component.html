@@ -1,0 +1,21 @@
+<p class="paragraph">
+    Press <b>EnableAll</b> and <b>DisableAll</b> all to enable and disable all validation rule in saleforce
+    respectively.
+    <br>Click <b>On</b> or <b>Off</b>
+    to enable or disable individual validation rule in SaleForce.
+
+</p>
+<button (click)="toggleAll(true)" id="master">Enable All</button>
+
+<button (click)="toggleAll(false)" id="master">Disable All</button>
+
+
+<hr>
+<ul>
+    <li *ngFor="let rule of Rules; index as i">
+        {{rule.Description}}
+        <button (click)="toggle(!rule.Active,rule.Id,i)"
+            [style.background-color]="rule.Active?'green':'red'">{{rule.Active?'ON':'OFF'}}</button>
+    </li>
+</ul>
+<hr>

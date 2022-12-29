@@ -18,7 +18,7 @@ export class AppComponent {
 
 
 
-  constructor(private oauthservice: OAuthService, private route: ActivatedRoute, private token: TokenserviceService) {
+  constructor(private oauthservice: OAuthService, private route: ActivatedRoute, private token: TokenserviceService, private Router: Router) {
     this.configureSSO();
   }
 
@@ -29,7 +29,12 @@ export class AppComponent {
         if (error.status == 404 || error.status == 400)
           alert("Invalid Url or Bad Request");
         else
-          alert("Unexpected Error occurred");
+          if (error.status == 401) {
+            this.Router.navigate(['']).then(_ =>
+              alert("Session Expired You Must Login"))
+          }
+
+        alert("Unexpected Error occurred");
       });
 
 
@@ -47,7 +52,6 @@ export class AppComponent {
 
     this.token.setAccessToken(new URLSearchParams(this.route.snapshot.fragment!).get('access_token')!);
     this.token.setInstanceUrl(new URLSearchParams(this.route.snapshot.fragment!).get('instance_url')!);
-    this.token.setRefreshToken(new URLSearchParams(this.route.snapshot.fragment!).get('refresh_token')!);
 
     let access_token: string = this.token.getAccessToken()!;
     return access_token != "null" ? true : false;

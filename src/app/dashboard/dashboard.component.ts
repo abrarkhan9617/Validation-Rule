@@ -17,7 +17,7 @@ export class DashboardComponent implements OnInit {
 
   Rules: any = [];
 
-  constructor(private validationrule: ValidationruleService, private token: TokenserviceService, private router: Router) {
+  constructor(private validationrule: ValidationruleService, private token: TokenserviceService, private router: Router, private Router: Router) {
   }
 
 
@@ -31,7 +31,11 @@ export class DashboardComponent implements OnInit {
         if (error.status == 404 || error.status == 400)
           alert("Invalid Url or Bad Request");
         else
-          alert("Unexpected Error occurred");
+          if (error.status == 401) {
+            this.Router.navigate(['']).then(_ =>
+              alert("Session Expired You Must Login"))
+          }
+        alert("Unexpected Error occurred");
       });
   }
 
@@ -53,7 +57,11 @@ export class DashboardComponent implements OnInit {
           if (error.status == 404 || error.status == 400)
             alert("Invalid Url or Bad Request");
           else
-            alert("Unexpected Error occurred");
+            if (error.status == 401) {
+              this.Router.navigate(['']).then(_ =>
+                alert("Session Expired You Must Login"))
+            }
+          alert("Unexpected Error occurred");
           return;
         })
 
@@ -85,7 +93,11 @@ export class DashboardComponent implements OnInit {
         if (error.status == 404 || error.status == 400)
           alert("Invalid Url or Bad Request");
         else
-          alert("Unexpected Error occurred");
+          if (error.status == 401) {
+            this.Router.navigate(['']).then(_ =>
+              alert("Session Expired You Must Login"))
+          }
+        alert("Unexpected Error occurred");
       })
 
   }

@@ -1,9 +1,9 @@
 import { TokenserviceService } from './../tokenservice.service';
-import { Observable, catchError, combineLatest, observable, forkJoin, throwError } from 'rxjs';
-import { ActivatedRoute, Router } from '@angular/router';
+import { forkJoin } from 'rxjs';
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { ValidationruleService } from '../validationrule.service';
-import { map, tap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 
 @Component({
@@ -17,7 +17,7 @@ export class DashboardComponent implements OnInit {
 
   Rules: any = [];
 
-  constructor(private validationrule: ValidationruleService, private token: TokenserviceService, private router: Router, private Router: Router) {
+  constructor(private validationrule: ValidationruleService, private token: TokenserviceService, private Router: Router) {
   }
 
 
@@ -34,8 +34,8 @@ export class DashboardComponent implements OnInit {
           if (error.status == 401) {
             this.Router.navigate(['']).then(_ =>
               alert("Session Expired You Must Login"))
-          }
-        alert("Unexpected Error occurred");
+          } else
+            alert("Unexpected Error occurred");
       });
   }
 
@@ -60,9 +60,9 @@ export class DashboardComponent implements OnInit {
             if (error.status == 401) {
               this.Router.navigate(['']).then(_ =>
                 alert("Session Expired You Must Login"))
-            }
-          alert("Unexpected Error occurred");
-          return;
+            } else
+              alert("Unexpected Error occurred");
+
         })
 
   }
@@ -97,7 +97,8 @@ export class DashboardComponent implements OnInit {
             this.Router.navigate(['']).then(_ =>
               alert("Session Expired You Must Login"))
           }
-        alert("Unexpected Error occurred");
+          else
+            alert("Unexpected Error occurred");
       })
 
   }

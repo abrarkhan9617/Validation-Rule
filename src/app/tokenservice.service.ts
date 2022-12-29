@@ -1,9 +1,6 @@
-import { Router, ActivatedRoute } from '@angular/router';
 
-import { HttpClient } from '@angular/common/http';
-import { Injectable, OnInit } from '@angular/core';
-import { map } from 'rxjs/operators';
-import { throwError, catchError } from 'rxjs';
+import { Injectable } from '@angular/core';
+
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +9,7 @@ export class TokenserviceService {
 
   access_token: any;
 
-  constructor(private http: HttpClient, private route: ActivatedRoute) { }
+
 
 
   setAccessToken(Access_token: string) {

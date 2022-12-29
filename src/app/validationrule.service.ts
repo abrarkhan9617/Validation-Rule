@@ -1,7 +1,5 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { json } from 'body-parser';
-import { Observable, catchError, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 
@@ -39,7 +37,7 @@ export class ValidationruleService {
     };
 
 
-    console.log(JSON.stringify(metadata));
+
 
     return this.HttpService.patch(instance_url + "/services/data/v56.0/tooling/sobjects/ValidationRule/" + Id, JSON.stringify(body), { 'headers': { 'Authorization': token, 'Content-Type': 'application/json' } }).subscribe(
       data => {

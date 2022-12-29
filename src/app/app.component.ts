@@ -1,5 +1,5 @@
 import { TokenserviceService } from './tokenservice.service';
-import { ActivatedRoute, Routes, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component } from '@angular/core';
 import { OAuthService } from 'angular-oauth2-oidc';
 import { authConfig } from './sso.config';
@@ -33,8 +33,8 @@ export class AppComponent {
             this.Router.navigate(['']).then(_ =>
               alert("Session Expired You Must Login"))
           }
-
-        alert("Unexpected Error occurred");
+          else
+            alert("Unexpected Error occurred");
       });
 
 
@@ -42,12 +42,12 @@ export class AppComponent {
 
 
   login() {
+
     this.oauthservice.initImplicitFlow();
   }
 
+
   authorization() {
-
-
 
 
     this.token.setAccessToken(new URLSearchParams(this.route.snapshot.fragment!).get('access_token')!);
@@ -55,8 +55,6 @@ export class AppComponent {
 
     let access_token: string = this.token.getAccessToken()!;
     return access_token != "null" ? true : false;
-
-
 
   }
 

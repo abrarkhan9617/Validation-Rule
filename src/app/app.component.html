@@ -1,4 +1,6 @@
+<button (click)="logout()" *ngIf="authorization()" id="logout">LoginOut</button>
 <h1 class="heading">{{heading}}</h1>
 
 <button (click)="login()" *ngIf="!authorization()" class="button">Login</button>
+
 <router-outlet *ngIf="authorization()"></router-outlet>

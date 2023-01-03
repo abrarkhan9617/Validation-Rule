@@ -13,7 +13,7 @@
 <hr>
 <ul>
     <li *ngFor="let rule of Rules; index as i">
-        {{rule.Description}}
+        {{rule.ValidationName}}
         <button (click)="toggle(!rule.Active,rule.Id,i)"
             [style.background-color]="rule.Active?'green':'red'">{{rule.Active?'ON':'OFF'}}</button>
     </li>

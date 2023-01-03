@@ -47,6 +47,13 @@ export class AppComponent {
   }
 
 
+  logout() {
+
+    this.Router.navigate([''], { replaceUrl: true });
+
+  }
+
+
   authorization() {
 
 

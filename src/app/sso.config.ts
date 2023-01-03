@@ -2,7 +2,7 @@ import { AuthConfig } from 'angular-oauth2-oidc';
 
 export const authConfig: AuthConfig = {
 
-    issuer: 'https://testcom-67e-dev-ed.develop.my.salesforce.com',
+    issuer: 'https://login.salesforce.com',
 
     redirectUri: 'http://validationrule-8ec53.firebaseapp.com/dashboard',
 

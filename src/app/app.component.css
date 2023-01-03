@@ -7,6 +7,20 @@ h1 {
 
 }
 
+#logout {
+    border-radius: 4px;
+    background-color: rgb(199, 180, 152);
+    border: none;
+    color: rgb(137, 87, 12);
+    text-align: top;
+    font-size: 25px;
+    width: 120px;
+    cursor: pointer;
+    margin-left: 1380px;
+    opacity: 0.6;
+    font-family: Sans-serif;
+}
+
 .button {
     border-radius: 4px;
     background-color: rgb(199, 180, 152);
@@ -23,6 +37,15 @@ h1 {
 }
 
 .button:hover {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+    opacity: 1;
+}
+
+
+#logout:hover {
     cursor: pointer;
     display: inline-block;
     position: relative;
